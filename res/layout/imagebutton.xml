@@ -1,0 +1,4 @@
+    <ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/standardImageButton"
+        android:layout_width="96dip"
+        android:layout_height="96dip" />

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="org.ell.text"
+      android:versionCode="1"
+      android:versionName="1.0">
+      
+    <uses-sdk android:minSdkVersion="13" />
+
+    <application android:icon="@drawable/icon" 
+        android:label="@string/app_name" 
+        android:name="FriendyApp">
+        <activity android:name=".FriendyMain"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+		<activity android:name=".Msgs"
+				  android:configChanges="keyboardHidden"
+                  android:label="@string/app_name">
+        </activity>
+        <activity android:name=".SendNew"
+				  android:configChanges="keyboardHidden"
+                  android:label="@string/app_name">
+        </activity>
+        <activity android:name=".NewMsg"
+        		  android:theme="@android:style/Theme.Dialog"
+                  android:label="@string/app_name">
+        </activity>
+<receiver android:name="SMSReceive" android:enabled="true">
+      <intent-filter>
+        <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+      </intent-filter>
+</receiver>
+<receiver android:name=".MmsListener">
+    <intent-filter>
+        <action android:name="android.provider.Telephony.WAP_PUSH_RECEIVED" />
+        <data android:mimeType="application/vnd.wap.mms-message" />
+    </intent-filter>
+</receiver>
+<meta-data android:value="@string/app_id" android:name="com.facebook.sdk.ApplicationId"/>
+    </application>
+    <uses-permission android:name="android.permission.READ_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
+	<uses-permission android:name="android.permission.WRITE_SMS"></uses-permission>
+	<uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
+	<uses-permission android:name="android.permission.RECEIVE_MMS"/>
+	<uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
+	<uses-permission android:name="android.permission.VIBRATE"></uses-permission>
+</manifest>
